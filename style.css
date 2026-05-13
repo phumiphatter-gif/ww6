@@ -1,0 +1,172 @@
+/* ตั้งค่าพื้นฐานและฟอนต์ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: #fcf6f0; /* สีพื้นหลังโทนอุ่นตามภาพ */
+}
+
+/* --- Navbar (ตามภาพ image_485d3c.jpg) --- */
+.navbar {
+    background-color: #8d594e; /* สีน้ำตาลเข้ม */
+    height: 80px;
+    display: flex;
+    justify-content: space-between; /* แยกโลโก้กับเมนูไว้คนละฝั่ง */
+    align-items: center;
+    padding: 0 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #d7ccc8;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s; /* ทำให้การเปลี่ยนสีนุ่มนวล */
+}
+
+/* --- 1. เมื่อเอาเมาส์ชี้ให้ตัวอักษรเปลี่ยนสี --- */
+.nav-links a:hover {
+    color: #ffffff; /* เปลี่ยนเป็นสีขาว */
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/* ปุ่ม Hamburger (ซ่อนไว้ก่อนในจอคอม) */
+#check {
+    display: none;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(#f7a99b, #f0bcac);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/* --- 2. Flexbox สำหรับการ์ดเมนู (Responsive) --- */
+.menu-container {
+    padding: 50px 10%;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap; /* ให้การ์ดตกลงมาเมื่อที่ว่างไม่พอ */
+    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    gap: 30px;
+}
+
+.menu-card {
+    background: white;
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px); /* ขยับขึ้นเมื่อชี้ */
+}
+
+.menu-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* ป้องกันรูปเบี้ยว */
+}
+
+.info {
+    padding: 20px;
+}
+
+.info h3 {
+    color: #3e2723;
+    margin-bottom: 10px;
+}
+
+.price {
+    display: block;
+    color: #fa7f52;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.order-btn {
+    background-color: #5d4037;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #3e2723;
+}
+
+/* --- 3. Responsive เมื่อเป็นมือถือ (ตามภาพ image_485a12.png) --- */
+@media (max-width: 850px) {
+    .checkbtn {
+        display: block; /* โชว์ปุ่ม 3 ขีด */
+    }
+
+    .nav-links {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2b1b17;
+        top: 80px;
+        left: -100%; /* ซ่อนเมนูไว้ทางซ้าย */
+        text-align: center;
+        flex-direction: column; /* จัดเมนูเป็นแนวตั้ง */
+        transition: all 0.5s;
+    }
+
+    .nav-links li {
+        margin: 30px 0;
+    }
+
+    .nav-links a {
+        font-size: 20px;
+    }
+
+    /* เมื่อกดปุ่ม 3 ขีด (Check) ให้เลื่อนเมนูออกมา */
+    #check:checked ~ .nav-links {
+        left: 0;
+    }
+}
